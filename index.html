@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function saveLocalStorage(){
+                // Check browser support
+                if (typeof(Storage) !== "undefined") {
+                    // Store
+                    var value = document.getElementById("txtLocalStorage").value;
+                    localStorage.setItem("localStorage_key", value);
+                } else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+                }
+            }
+
+            function getLocalStorage(){
+                // Check browser support
+                if (typeof(Storage) !== "undefined") {
+                    var value = localStorage.getItem("localStorage_key");
+                    document.getElementById("showLocalStorage").innerHTML = value;
+                } else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+                }
+            }
+
+            function saveSessionStorage(){
+                // Check browser support
+                if (typeof(Storage) !== "undefined") {
+                    // Store
+                    sessionStorage.sessionStorage_key = document.getElementById("txtSessionStorage").value;
+                } else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+                }
+            }
+
+            function getSessionStorage(){
+                // Check browser support
+                if (typeof(Storage) !== "undefined") {
+                    document.getElementById("showSessionStorage").innerHTML = sessionStorage.sessionStorage_key;
+                } else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+                }
+            }
+
+            function show(){
+              getLocalStorage();
+              getSessionStorage();
+            }
+
+            function clear(){
+              if (typeof(Storage) !== "undefined") {
+                localStorage.removeItem("localStorage_key");
+              }
+            }
+        </script>
+
+        <p>Please input value for LocalStorage</p>
+        <input type="text" id="txtLocalStorage"/>
+        <button onclick="saveLocalStorage()">SAVE</button>
+        <button onclick="clear()">Clear LocalStorage</button>
+        <p>Please input value for SessionStorage</p>
+        <input type="text" id="txtSessionStorage"/>
+        <button onclick="saveSessionStorage()">SAVE</button>
+        <hr/>
+        <button onclick="show()">SHOW</button>
+        <p>Show LocalStorage : <span id="showLocalStorage"></span></p>
+        <p>Show SessionStorage : <span id="showSessionStorage"></span></p>
+        <div id="result"/>
+    </body>
+</html>
