@@ -47,9 +47,9 @@
               getSessionStorage();
             }
 
-            function clear(){
+            function clearStorage(){
               if (typeof(Storage) !== "undefined") {
-                localStorage.removeItem("localStorage_key");
+                localStorage.clear();
               }
             }
         </script>
@@ -57,7 +57,7 @@
         <p>Please input value for LocalStorage</p>
         <input type="text" id="txtLocalStorage"/>
         <button onclick="saveLocalStorage()">SAVE</button>
-        <button onclick="clear()">Clear LocalStorage</button>
+        <button onclick="clearStorage()">Clear LocalStorage</button>
         <p>Please input value for SessionStorage</p>
         <input type="text" id="txtSessionStorage"/>
         <button onclick="saveSessionStorage()">SAVE</button>
